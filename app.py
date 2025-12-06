@@ -384,6 +384,9 @@ def admin_settings():
 def init_db():
     with app.app_context():
         db.create_all()
+        # ... (بقية الدالة)
+    with app.app_context():
+        db.create_all()
         
         # تحديث أو إنشاء حساب المسؤول
         admin = User.query.first()
@@ -443,6 +446,7 @@ def init_db():
         
         db.session.commit()
 
+init_db()
+
 if __name__ == '__main__':
-    init_db()
     app.run(host='0.0.0.0', port=5000, debug=True)
